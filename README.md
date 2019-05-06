@@ -1,4 +1,4 @@
 # Object Classifcation Server 
 Simple object classification server.  
 
-use django and tensorflow-cpu
+use django framework and tensorflow-cpu

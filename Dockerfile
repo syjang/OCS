@@ -14,19 +14,13 @@ RUN apt-get update && \
 	pip3 install -U pip setuptools && \
    rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install uwsgi && pip3 install django
+RUN pip3 install uwsgi && pip3 install django && pip3 install djangorestframework && pip3 install markdown
 
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 COPY nginx-app.conf /etc/nginx/sites-available/default
 COPY supervisor-app.conf /etc/supervisor/conf.d/
 
-
-
 COPY . /home/docker/code/
-
-# install django, normally you would remove this step because your project would already
-# be installed in the code/app/ directory
-# RUN django-admin.py startproject website /home/docker/code/app/
 
 EXPOSE 8000
 #CMD ["supervisord", "-n"]
