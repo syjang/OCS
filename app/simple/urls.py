@@ -16,9 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 import simple.inference as infer
+from django.views.decorators.csrf import csrf_exempt
 
 
 urlpatterns = [
     # path('admin/', admin.site.urls),    
-    path( 'infer/', infer.Inference),
+    path( 'infer/', csrf_exempt(infer.Inference)),
 ]

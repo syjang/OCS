@@ -16,6 +16,8 @@ RUN apt-get update && \
 
 RUN pip3 install uwsgi && pip3 install django && pip3 install djangorestframework && pip3 install markdown
 
+RUN pip3 install keras && pip3 install pillow
+
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 COPY nginx-app.conf /etc/nginx/sites-available/default
 COPY supervisor-app.conf /etc/supervisor/conf.d/
